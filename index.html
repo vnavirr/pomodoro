@@ -2,14 +2,54 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>app name</title>
+    <title>Pomodoro</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <div class="app">
-      <p>Test app</p>
-      <button id="testBtn">Button</button>
+        
+        <!-- app title -->
+        <div class="title">
+            <p>focus time</p>
+        </div>
+        
+        <!-- timer btns -->
+        <div class="timer-btns">
+            <!-- pomodoro btn -->
+            <div class="pomodoro">
+                <button id="pomodoroBtn">Pomodoro</button>
+            </div>
+
+            <!-- short break btn -->
+            <div class="short-break">
+                <button id="shortBreakBtn">Short Break</button>
+            </div>
+            
+            <!-- long break btn -->
+            <div class="long-break">
+                <button id="longBreakBtn">Long Break</button>
+            </div>
+
+        </div>
+
+        <!-- timer display -->
+        <div class="timer-display">
+            <p>25:00</p>
+        </div>
+
+        <!-- start btn -->
+        <div class="start-btn">
+            <button id="startBtn">Start</button>
+        </div>
+
+        <!-- pomodoro count -->
+        <div class="pomodoro-count">
+            <p>pomodoro count</p>
+            <p id="pomodoroCount">0</p>
+        </div>
+        
+
     </div>
 
     <script src="script.js"></script>

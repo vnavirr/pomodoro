@@ -19,10 +19,11 @@ body {
   color: white;
   font-family: 'Outfit', serif;
 
+  overflow: auto;
 }
 
 .app {
-  padding: 6px;
+  padding: 20px;
 }
 
 
@@ -47,8 +48,15 @@ select {
     justify-content: center;
     align-items: center;
     gap: 8px;
+
     margin: 20px 0px 0px 0px;
+    padding: 19px 14px 19px 13px;
+
     background: #FFF5EE;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 7px 1px rgba(190, 239, 187, 0.50);
+    
 }
 
 .type-btns-container {
@@ -92,7 +100,7 @@ select {
     border: none;
     border-radius: 6px;
     box-shadow: 0 0 7px 0 rgba(85, 61, 44, 0.50);
-    padding: 6px 13px 4px 15px;
+    padding: 6px 13px 5px 15px;
 }
 
 

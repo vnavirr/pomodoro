@@ -111,15 +111,16 @@ select {
 
 .state-btn {
     font-size: 20px;
-    background: #CFA88C;
+    background: #8CA476;
+    color: white;
     border: none;
     border-radius: 6px;
-    box-shadow: 0 0 7px 0 rgba(95, 70, 52, 0.50);
+    box-shadow: 0 0 7px 0 rgba(118, 139, 99, 0.40);
     padding: 6px 13px 5px 15px;
 }
 
 .state-btn:hover {
-    box-shadow: 0 0 7px 0 rgba(85, 61, 44, 0.65);
+    box-shadow: 0 0 7px 0 rgba(118, 139, 99, 0.70);
 }
 
 #pauseBtn {

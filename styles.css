@@ -16,11 +16,13 @@ body {
   background-size: cover;
   background-position: center;
 
+  color: white;
+  font-family: 'Outfit', serif;
+
 }
 
 .app {
   padding: 6px;
-  font-family: 'Outfit', serif;
 }
 
 
@@ -31,61 +33,78 @@ select {
   -webkit-app-region: no-drag;
   cursor: pointer;
   font-family: 'Outfit', serif;
-  font-size: 12px;
 }
 
 
-.title {
+.title-container {
     text-align: center;
     font-size: 32px;
 }
 
-.contents {
+.contents-container {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 8px;
     margin: 20px 0px 0px 0px;
+    background: #FFF5EE;
 }
 
-.type-btns {
+.type-btns-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 8px;
 }
 
+.type-btn {
+    background: #F3D5C2;
+    font-size: 12px;
+    padding: 4px 9px 3px 9px;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 4px 0 rgba(85, 61, 44, 0.50);
+}
+
+
 .timer {
     display: flex;
     justify-content: center;
     font-size: 70px;
+    color: black;
 }
 
 #timerText {
     margin: 0px;
 }
 
-.state-btns {
+.state-btns-containter {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 8px;
 }
 
-#startBtn {
+.state-btn {
     font-size: 20px;
+    background: #CFA88C;
+    border: none;
+    border-radius: 6px;
+    box-shadow: 0 0 7px 0 rgba(85, 61, 44, 0.50);
+    padding: 6px 13px 4px 15px;
 }
+
 
 #pauseBtn {
     display: none;
-    font-size: 20px;
 }
 
 #resetBtn {
     display: none;
-    font-size: 20px;
 }
 
-.pomodoro-count {
+.pomodoro-count-container {
     display: flex;
     justify-content: center;
     gap: 5px;

@@ -7,15 +7,19 @@ const pomodoroBtn = document.getElementById('pomodoroBtn');
 const timerText = document.getElementById('timerText');
 const pomodoroCountText = document.getElementById('pomodoroCount');
 
-const WORK_TIME = 25 * 60;
-const SHORT_BREAK_TIME = 5 * 60;
-const LONG_BREAK_TIME = 15 * 60;
+// times associated with statuses
+const TIMES = {
+    work: 25 * 60,
+    short_break: 5 * 60,
+    long_break: 15 * 60
+}
 
 let countdown;
-let timeLeft = WORK_TIME;
 let currentStatus = 'work';
+let timeLeft = TIMES[currentStatus];
 let pomodoroCount = 0;
 
+// update timer text display & pomodoro count display 
 function updateDisplay() {
   const minutes = Math.floor(timeLeft / 60);
   const seconds = timeLeft % 60;
@@ -23,49 +27,67 @@ function updateDisplay() {
   pomodoroCountText.textContent = pomodoroCount;
 }
 
+// show start btn & hide pause/reset btn
 function showStartBtn() {
     startBtn.style.display = 'inline-block';
     pauseBtn.style.display = 'none';
     resetBtn.style.display = 'none';
 }
 
+// show pause & reset btns & hide start btn
+function showPauseResetBtn() {
+    startBtn.style.display = 'none';
+    pauseBtn.style.display = 'inline-block';
+    resetBtn.style.display = 'inline-block';
+}
+
+// show start & reset btns & hide pause btn
+function showStartResetBtn() {
+    startBtn.style.display = 'inline-block';
+    pauseBtn.style.display = 'none';
+    resetBtn.style.display = 'inline-block';
+}
+
+// switch between work, short break, and long break modes
+function switchMode(status) {
+    clearInterval(countdown);  // pause the timer
+    timeLeft = TIMES[status];  // set timeLeft based on the selected mode
+    currentStatus = status;  // update currentStatus
+    updateDisplay();
+    showStartBtn();
+}
+
+// get the next status based on the current status and pomodoro count
+function getNextStatus() {
+    if (currentStatus !== 'work') return 'work';
+    return (pomodoroCount + 1) % 4 === 0 ? 'long_break' : 'short_break';
+}
+
+// handle the end of a session, update pomodoro count if it was a work session, and switch to the next mode
+function handleSessionEnd() {
+    clearInterval(countdown);
+    alert("time is up!");
+
+    if (currentStatus === 'work') {
+        pomodoroCount++;
+    }
+
+    switchMode(getNextStatus());
+}
+
 // clicking start btn 
 startBtn.addEventListener('click', () => {
 
     // update UI
-    startBtn.style.display = 'none';
-    pauseBtn.style.display = 'inline-block';
-    resetBtn.style.display = 'inline-block';
+    showPauseResetBtn();
 
     countdown = setInterval(() => {
         if (timeLeft > 0) {
             timeLeft--;
             updateDisplay();
         } else {
-            clearInterval(countdown);
-            alert("time is up!");
-
-            // update pomodoro count
-            if (currentStatus === 'work') {
-                pomodoroCount++;
-            }
-
-            // change status and set timeLeft for next session
-            if (currentStatus === 'work' && (pomodoroCount % 4) !== 0) {
-                timeLeft = SHORT_BREAK_TIME;
-                currentStatus = 'short_break';
-                showStartBtn();
-            } else if (currentStatus === 'work' && (pomodoroCount % 4) === 0) {
-                timeLeft = LONG_BREAK_TIME;
-                currentStatus = 'long_break';
-                showStartBtn();
-            } else {
-                timeLeft = WORK_TIME;
-                currentStatus = 'work';
-                showStartBtn();
-            }
-
-            updateDisplay();}
+           handleSessionEnd();
+        }
     }, 1000);
 
 });
@@ -77,62 +99,27 @@ pauseBtn.addEventListener('click', () => {
     clearInterval(countdown);
 
     // update UI
-    startBtn.style.display = 'inline-block';
-    pauseBtn.style.display = 'none';
-    resetBtn.style.display = 'inline-block';
+    showStartResetBtn();
 
 });
-
 
 // clicking reset btn
 resetBtn.addEventListener('click', () => {
 
     // reset timer
     clearInterval(countdown);
-
-    if (currentStatus === "work") {
-        timeLeft = WORK_TIME;
-    } else if (currentStatus === "short_break") {
-        timeLeft = SHORT_BREAK_TIME;
-    } else if (currentStatus === "long_break") {
-        timeLeft = LONG_BREAK_TIME;
-    }
-
-    updateDisplay();
+    timeLeft = TIMES[currentStatus];
 
     // update UI
-    startBtn.style.display = 'inline-block';
-    pauseBtn.style.display = 'none';
-    resetBtn.style.display = 'none';
-
+    updateDisplay();
+    showStartBtn();
 });
 
 // clicking pomodoro btn
-pomodoroBtn.addEventListener('click', () => {
-    // reset timer
-    clearInterval(countdown);
-    timeLeft = WORK_TIME;
-    currentStatus = 'work';
-    updateDisplay();
-    showStartBtn();
-});
+pomodoroBtn.addEventListener('click', () => switchMode('work') );
 
 // clicking short break btn
-shortBreakBtn.addEventListener('click', () => {
-    // reset timer
-    clearInterval(countdown);
-    timeLeft = SHORT_BREAK_TIME;
-    currentStatus = 'short_break';
-    updateDisplay();
-    showStartBtn();
-});
+shortBreakBtn.addEventListener('click', () => switchMode('short_break') );
 
 // clicking long break btn
-longBreakBtn.addEventListener('click', () => {
-    // reset timer
-    clearInterval(countdown);
-    timeLeft = LONG_BREAK_TIME;
-    currentStatus = 'long_break';
-    updateDisplay();
-    showStartBtn();
-});
+longBreakBtn.addEventListener('click', () => switchMode('long_break') );

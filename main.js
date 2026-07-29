@@ -3,7 +3,7 @@ const { app, BrowserWindow } = require("electron");
 function createWindow() {
   const win = new BrowserWindow({
     width: 320,
-    height: 430,
+    height: 360,
     resizable: false,
     maximizable: false,
     fullscreenable: false,

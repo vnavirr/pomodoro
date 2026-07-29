@@ -48,6 +48,24 @@ function showStartResetBtn() {
     resetBtn.style.display = 'inline-block';
 }
 
+// change type button backgrounds
+function updateTypeBtnBackgrounds() {
+
+    if (currentStatus === 'work') {
+        pomodoroBtn.style.backgroundColor = '#CFA88C';
+        shortBreakBtn.style.backgroundColor = '#F3D5C2';
+        longBreakBtn.style.backgroundColor = '#F3D5C2';
+    } else if (currentStatus === 'short_break') {
+        pomodoroBtn.style.backgroundColor = '#F3D5C2';
+        shortBreakBtn.style.backgroundColor = '#CFA88C';
+        longBreakBtn.style.backgroundColor = '#F3D5C2';
+    } else if (currentStatus === 'long_break') {
+        pomodoroBtn.style.backgroundColor = '#F3D5C2';
+        shortBreakBtn.style.backgroundColor = '#F3D5C2';
+        longBreakBtn.style.backgroundColor = '#CFA88C';
+    }
+}
+
 // switch between work, short break, and long break modes
 function switchMode(status) {
     clearInterval(countdown);  // pause the timer
@@ -55,6 +73,7 @@ function switchMode(status) {
     currentStatus = status;  // update currentStatus
     updateDisplay();
     showStartBtn();
+    updateTypeBtnBackgrounds();
 }
 
 // get the next status based on the current status and pomodoro count

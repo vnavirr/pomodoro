@@ -34,6 +34,7 @@ select {
   -webkit-app-region: no-drag;
   cursor: pointer;
   font-family: 'Outfit', serif;
+  color: #553D2C;
 }
 
 
@@ -67,14 +68,28 @@ select {
 }
 
 .type-btn {
-    background: #F3D5C2;
     font-size: 12px;
     padding: 4px 9px 3px 9px;
     border: none;
     border-radius: 6px;
-    box-shadow: 0 0 4px 0 rgba(85, 61, 44, 0.50);
+    box-shadow: 0 0 4px 0 rgba(95, 70, 52, 0.25);
 }
 
+.type-btn:hover {
+    box-shadow: 0 0 4px 0 rgba(85, 61, 44, 0.40);
+}
+
+#pomodoroBtn {
+    background: #CFA88C;
+}
+
+#shortBreakBtn {
+    background: #F3D5C2;
+}
+
+#longBreakBtn {
+    background: #F3D5C2;
+}
 
 .timer {
     display: flex;
@@ -99,10 +114,13 @@ select {
     background: #CFA88C;
     border: none;
     border-radius: 6px;
-    box-shadow: 0 0 7px 0 rgba(85, 61, 44, 0.50);
+    box-shadow: 0 0 7px 0 rgba(95, 70, 52, 0.50);
     padding: 6px 13px 5px 15px;
 }
 
+.state-btn:hover {
+    box-shadow: 0 0 7px 0 rgba(85, 61, 44, 0.65);
+}
 
 #pauseBtn {
     display: none;

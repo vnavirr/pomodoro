@@ -7,6 +7,13 @@ const pomodoroBtn = document.getElementById('pomodoroBtn');
 const timerText = document.getElementById('timerText');
 const pomodoroCountText = document.getElementById('pomodoroCount');
 
+// window controls 
+const closeBtn = document.getElementById('closeBtn');
+const minimizeBtn = document.getElementById('minimizeBtn');
+
+closeBtn.addEventListener('click', () => window.windowControls.close());
+minimizeBtn.addEventListener('click', () => window.windowControls.minimize());
+
 // times associated with statuses
 const TIMES = {
     work: 25 * 60,

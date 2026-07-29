@@ -42,7 +42,7 @@ select {
     margin: 20px 0px 0px 0px;
 }
 
-.timer-btns {
+.type-btns {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -59,12 +59,30 @@ select {
     margin: 0px;
 }
 
-.start-btn {
+.state-btns {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    gap: 8px;
+}
+
+.pause-btn {
+    display: none;
+}
+
+.reset-btn {
+    display: none;
 }
 
 #startBtn {
+    font-size: 24px;
+}
+
+#pauseBtn {
+    font-size: 24px;
+}
+
+#resetBtn {
     font-size: 24px;
 }
 

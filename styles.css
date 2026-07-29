@@ -55,7 +55,7 @@ select {
     font-size: 48px;
 }
 
-#timer-display {
+#timerText {
     margin: 0px;
 }
 
@@ -66,23 +66,17 @@ select {
     gap: 8px;
 }
 
-.pause-btn {
-    display: none;
-}
-
-.reset-btn {
-    display: none;
-}
-
 #startBtn {
     font-size: 24px;
 }
 
 #pauseBtn {
+    display: none;
     font-size: 24px;
 }
 
 #resetBtn {
+    display: none;
     font-size: 24px;
 }
 

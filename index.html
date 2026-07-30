@@ -23,66 +23,70 @@
             </div>
         </div>
 
-        <!-- app title -->
-        <div class="title-container">
-            <p>focus time</p>
-        </div>
-
         <!-- contents -->
         <div class="contents-container">
 
-            <!-- type btns -->
-            <div class="type-btns-container">
-                <!-- pomodoro btn -->
-                <div class="pomodoro">
-                    <button class="type-btn" id="pomodoroBtn">pomodoro</button>
+            <!-- app title -->
+            <div class="title-container">
+                <p>focus time</p>
+            </div>
+
+            <!-- pomodoro -->
+            <div class="pomodoro-container">
+
+                <!-- type btns -->
+                <div class="type-btns-container">
+                    <!-- pomodoro btn -->
+                    <div class="pomodoro">
+                        <button class="type-btn" id="pomodoroBtn">pomodoro</button>
+                    </div>
+
+                    <!-- short break btn -->
+                    <div class="short-break">
+                        <button class="type-btn" id="shortBreakBtn">short break</button>
+                    </div>
+                    
+                    <!-- long break btn -->
+                    <div class="long-break">
+                        <button class="type-btn" id="longBreakBtn">long break</button>
+                    </div>
+
                 </div>
 
-                <!-- short break btn -->
-                <div class="short-break">
-                    <button class="type-btn" id="shortBreakBtn">short break</button>
+                <!-- timer display -->
+                <div class="timer">
+                    <p id="timerText">25:00</p>
                 </div>
-                
-                <!-- long break btn -->
-                <div class="long-break">
-                    <button class="type-btn" id="longBreakBtn">long break</button>
+
+                <!-- state btns -->
+                <div class="state-btns-containter">
+
+                    <!-- start btn -->
+                    <div class="start-btn">
+                        <button class="state-btn" id="startBtn">start</button>
+                    </div>
+
+                    <!-- pause btn -->
+                    <div class="pause-btn">
+                        <button class="state-btn" id="pauseBtn">pause</button>
+                    </div>
+
+                    <!-- reset btn -->
+                    <div class="reset-btn">
+                        <button class="state-btn" id="resetBtn">reset</button>
+                    </div>
+
                 </div>
 
             </div>
 
-            <!-- timer display -->
-            <div class="timer">
-                <p id="timerText">25:00</p>
+            <!-- pomodoro count -->
+            <div class="pomodoro-count-container">
+                <p>pomodoro count: </p>
+                <p id="pomodoroCount">0</p>
             </div>
-
-            <!-- state btns -->
-            <div class="state-btns-containter">
-
-                <!-- start btn -->
-                <div class="start-btn">
-                    <button class="state-btn" id="startBtn">start</button>
-                </div>
-
-                <!-- pause btn -->
-                <div class="pause-btn">
-                    <button class="state-btn" id="pauseBtn">pause</button>
-                </div>
-
-                <!-- reset btn -->
-                <div class="reset-btn">
-                    <button class="state-btn" id="resetBtn">reset</button>
-                </div>
-
-            </div>
-
+            
         </div>
-
-        <!-- pomodoro count -->
-        <div class="pomodoro-count-container">
-            <p>pomodoro count: </p>
-            <p id="pomodoroCount">0</p>
-        </div>
-        
 
     </div>
 

@@ -85,10 +85,15 @@ select {
 }
 
 .title-container {
+    height:fit-content;
     width: fit-content;
-    height: 5rem;
     text-align: center;
-    font-size: 32px;
+    font-size: 36px;
+    margin: 22px 0px 10px 0px;
+}
+
+.title-container p {
+    margin: 0;
 }
 
 .pomodoro-container {
@@ -96,7 +101,7 @@ select {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 
     padding: 19px 14px 19px 13px;
 
@@ -182,5 +187,5 @@ select {
     display: flex;
     justify-content: center;
     gap: 5px;
-    font-size: 20px;
+    font-size: 18px;
 }

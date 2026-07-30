@@ -10,6 +10,7 @@ function createWindow() {
     fullscreenable: false,
     frame: false, 
     transparent: false,
+    alwaysOnTop: true,
     webPreferences: {
       contextIsolation: true,
       preload: path.join(__dirname, "preload.js")

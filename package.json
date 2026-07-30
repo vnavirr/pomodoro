@@ -1,11 +1,29 @@
 {
   "name": "pomodoro",
   "version": "1.0.0",
+  "author": "vnavirr",
+  "description": "A pomodoro app",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
-  "dependencies": {
-    "electron": "^43.2.0"
+  "devDependencies": {
+    "electron": "^43.2.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.vnavirr.pomodoro",
+    "productName": "Pomodoro",
+    "files": [
+      "**/*",
+      "!node_modules/@electron/get",
+      "!node_modules/@electron-internal"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    }
   }
 }

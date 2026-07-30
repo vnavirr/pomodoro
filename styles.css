@@ -45,6 +45,8 @@ select {
   height: 26px;
   padding: 7px 12px;
   background: #FFF5EE;
+  border: none;
+  box-shadow: 0 0 10px 0 rgb(49, 38, 28, 0.5);
 }
 
 .window-controls {
@@ -80,7 +82,6 @@ select {
     height: 5rem;
     text-align: center;
     font-size: 32px;
-    /*border: 2px solid black;*/
 }
 
 .pomodoro-container {
@@ -133,7 +134,7 @@ select {
 .timer {
     display: flex;
     justify-content: center;
-    font-size: 70px;
+    font-size: 76px;
     color: black;
 }
 

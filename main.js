@@ -1,5 +1,8 @@
-const { app, BrowserWindow, ipcMain, screen} = require("electron");
+const { app, BrowserWindow, ipcMain, screen } = require("electron");
 const path = require("path");
+const Store = require("electron-store");
+
+const store = new Store();
 
 let win;
 let mouseTrackInterval;
@@ -23,6 +26,15 @@ function createWindow() {
   win.loadFile("index.html");
   ipcMain.on('window-close', () => win.close());
   ipcMain.on('window-minimize', () => win.minimize());
+
+  // pomodoro count persistence
+  ipcMain.handle('get-pomodoro-count', () => {
+    return store.get('pomodoroCount', 0);
+  });
+
+  ipcMain.on('set-pomodoro-count', (event, count) => {
+    store.set('pomodoroCount', count);
+  });
 
   startMouseTracking();
 }

@@ -6,3 +6,8 @@ contextBridge.exposeInMainWorld('windowControls', {
     onCursorEnter: (callback) => ipcRenderer.on('cursor-enter', callback),
     onCursorLeave: (callback) => ipcRenderer.on('cursor-leave', callback),
 });
+
+contextBridge.exposeInMainWorld('pomodoroStore', {
+    getCount: () => ipcRenderer.invoke('get-pomodoro-count'),
+    setCount: (count) => ipcRenderer.send('set-pomodoro-count', count),
+});

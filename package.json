@@ -25,5 +25,8 @@
       "target": "nsis",
       "icon": "build/icon.ico"
     }
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0"
   }
 }

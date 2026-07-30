@@ -7,27 +7,6 @@ const pomodoroBtn = document.getElementById('pomodoroBtn');
 const timerText = document.getElementById('timerText');
 const pomodoroCountText = document.getElementById('pomodoroCount');
 
-
-// window controls 
-const closeBtn = document.getElementById('closeBtn');
-const minimizeBtn = document.getElementById('minimizeBtn');
-
-closeBtn.addEventListener('click', () => window.windowControls.close());
-minimizeBtn.addEventListener('click', () => window.windowControls.minimize());
-
-
-// title bar appear & disappear
-const titleBar = document.querySelector(".title-bar");
-
-window.windowControls.onCursorEnter(() => {
-    titleBar.classList.remove("hidden");
-});
-
-window.windowControls.onCursorLeave(() => {
-    titleBar.classList.add("hidden");
-});
-
-
 // times associated with statuses
 const TIMES = {
     work: 25 * 60,
@@ -38,7 +17,15 @@ const TIMES = {
 let countdown;
 let currentStatus = 'work';
 let timeLeft = TIMES[currentStatus];
+
+// update pomodoro count
 let pomodoroCount = 0;
+
+window.pomodoroStore.getCount().then((count) => {
+    pomodoroCount = count;
+    updateDisplay();
+});
+
 
 // update timer text display & pomodoro count display 
 function updateDisplay() {
@@ -110,6 +97,7 @@ function handleSessionEnd() {
 
     if (currentStatus === 'work') {
         pomodoroCount++;
+        window.pomodoroStore.setCount(pomodoroCount);
     }
 
     switchMode(getNextStatus());
@@ -163,3 +151,26 @@ shortBreakBtn.addEventListener('click', () => switchMode('short_break') );
 
 // clicking long break btn
 longBreakBtn.addEventListener('click', () => switchMode('long_break') );
+
+
+
+// APP CONTROLS --------------------------------------------------------------------------
+
+// window controls 
+const closeBtn = document.getElementById('closeBtn');
+const minimizeBtn = document.getElementById('minimizeBtn');
+
+closeBtn.addEventListener('click', () => window.windowControls.close());
+minimizeBtn.addEventListener('click', () => window.windowControls.minimize());
+
+
+// title bar appear & disappear
+const titleBar = document.querySelector(".title-bar");
+
+window.windowControls.onCursorEnter(() => {
+    titleBar.classList.remove("hidden");
+});
+
+window.windowControls.onCursorLeave(() => {
+    titleBar.classList.add("hidden");
+});

@@ -7,12 +7,26 @@ const pomodoroBtn = document.getElementById('pomodoroBtn');
 const timerText = document.getElementById('timerText');
 const pomodoroCountText = document.getElementById('pomodoroCount');
 
+
 // window controls 
 const closeBtn = document.getElementById('closeBtn');
 const minimizeBtn = document.getElementById('minimizeBtn');
 
 closeBtn.addEventListener('click', () => window.windowControls.close());
 minimizeBtn.addEventListener('click', () => window.windowControls.minimize());
+
+
+// title bar appear & disappear
+const titleBar = document.querySelector(".title-bar");
+
+window.windowControls.onCursorEnter(() => {
+    titleBar.classList.remove("hidden");
+});
+
+window.windowControls.onCursorLeave(() => {
+    titleBar.classList.add("hidden");
+});
+
 
 // times associated with statuses
 const TIMES = {

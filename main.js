@@ -1,8 +1,11 @@
-const { app, BrowserWindow, ipcMain } = require("electron");
+const { app, BrowserWindow, ipcMain, screen} = require("electron");
 const path = require("path");
 
+let win;
+let mouseTrackInterval;
+
 function createWindow() {
-  const win = new BrowserWindow({
+  win = new BrowserWindow({
     width: 320,
     height: 380,
     resizable: false,
@@ -20,6 +23,33 @@ function createWindow() {
   win.loadFile("index.html");
   ipcMain.on('window-close', () => win.close());
   ipcMain.on('window-minimize', () => win.minimize());
+
+  startMouseTracking();
+}
+
+function startMouseTracking() {
+  let wasInside = true;
+
+  mouseTrackInterval = setInterval(() => {
+
+    if (!win || win.isDestroyed()) return;
+
+    const cursor = screen.getCursorScreenPoint();
+    const bounds = win.getBounds();
+
+    const isInside = 
+      cursor.x >= bounds.x &&
+      cursor.x <= bounds.x + bounds.width &&
+      cursor.y >= bounds.y &&
+      cursor. y <= bounds.y + bounds.height;
+
+    if (isInside !== wasInside) {
+      wasInside = isInside;
+      win.webContents.send(isInside ? 'cursor-enter' : 'cursor-leave');
+    }
+
+  }, 50);
+
 }
 
 app.whenReady().then(createWindow);

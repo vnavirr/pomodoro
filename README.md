@@ -30,17 +30,17 @@ This is a frameless, desktop Pomodoro timer with a custom title bar, three sessi
 ```
 pomodoro/
 ├── assets/
-|   ├── appDemo.png        # app demo image  
-│   ├── bgImg.jpg          # background image
-│   ├── cross.png           # close icon
-│   └── minimize.png        # minimize icon
+|   ├── appDemo.png       # app demo image  
+│   ├── bgImg.jpg         # background image
+│   ├── cross.png         # close icon
+│   └── minimize.png      # minimize icon
 ├── build/
-│   └── icon.ico            # app icon used by electron-builder
-├── index.html               # app markup
-├── main.js                  # Electron main process (window creation, IPC, cursor tracking, persisted store)
-├── preload.js                # contextBridge — exposes safe window controls & store access to the renderer
-├── script.js                 # timer logic and UI event handling
-├── styles.css                 # app styling
+│   └── icon.ico          # app icon used by electron-builder
+├── index.html            # app markup
+├── main.js               # Electron main process (window creation, IPC, cursor tracking, persisted store)
+├── preload.js            # contextBridge — exposes safe window controls & store access to the renderer
+├── script.js             # timer logic and UI event handling
+├── styles.css            # app styling
 ├── package.json
 └── package-lock.json
 ```

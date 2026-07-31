@@ -1,7 +1,7 @@
 # Pomodoro
 A minimal, macOS-inspired Pomodoro timer built as a desktop app with Electron.
 
-<img src="assets/appDemo.png" alt="Project Screenshot" width="500">
+<img src="assets/appDemo.png" alt="Project Screenshot" width="1000">
 
 ## Overview
 

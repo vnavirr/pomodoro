@@ -1,6 +1,8 @@
 # Pomodoro
 A minimal, macOS-inspired Pomodoro timer built as a desktop app with Electron.
 
+![Pomodoro App](assets/appDemo.pmg)
+
 ## Overview
 
 This is a frameless, desktop Pomodoro timer with a custom title bar, three session modes (pomodoro / short break / long break), and automatic cycling through the standard 25-5-15 Pomodoro Technique — with a long break every 4th work session.

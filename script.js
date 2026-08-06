@@ -158,7 +158,7 @@ longBreakBtn.addEventListener('click', () => switchMode('long_break') );
 
 
 
-// APP CONTROLS --------------------------------------------------------------------------
+// APP CONTROLS -----------------------------------------------------------------------------------
 
 // window controls 
 const closeBtn = document.getElementById('closeBtn');

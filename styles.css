@@ -196,9 +196,17 @@ select {
     display: none;
 }
 
+.counts-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 .pomodoro-count-container {
     display: flex;
     justify-content: center;
     gap: 5px;
     font-size: 18px;
+    margin: -20px;
 }

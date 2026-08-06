@@ -10,8 +10,8 @@ let mouseTrackInterval;
 function createWindow() {
   win = new BrowserWindow({
     width: 320,
-    height: 380,
-    resizable: false,
+    height: 390,
+    resizable: true,
     maximizable: false,
     fullscreenable: false,
     frame: false, 

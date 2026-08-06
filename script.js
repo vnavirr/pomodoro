@@ -6,6 +6,7 @@ const longBreakBtn = document.getElementById('longBreakBtn');
 const pomodoroBtn = document.getElementById('pomodoroBtn');
 const timerText = document.getElementById('timerText');
 const pomodoroCountText = document.getElementById('pomodoroCount');
+const totalPomodoroCountText = document.getElementById('totalPomodoroCount');
 
 // times associated with statuses
 const TIMES = {
@@ -20,9 +21,10 @@ let timeLeft = TIMES[currentStatus];
 
 // update pomodoro count
 let pomodoroCount = 0;
+let totalPomodoroCount = 0;
 
 window.pomodoroStore.getCount().then((count) => {
-    pomodoroCount = count;
+    totalPomodoroCount = count;
     updateDisplay();
 });
 
@@ -33,6 +35,7 @@ function updateDisplay() {
   const seconds = timeLeft % 60;
   timerText.textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   pomodoroCountText.textContent = pomodoroCount;
+  totalPomodoroCountText.textContent = totalPomodoroCount;
 }
 
 // show start btn & hide pause/reset btn
@@ -97,7 +100,8 @@ function handleSessionEnd() {
 
     if (currentStatus === 'work') {
         pomodoroCount++;
-        window.pomodoroStore.setCount(pomodoroCount);
+        totalPomodoroCount++;
+        window.pomodoroStore.setCount(totalPomodoroCount);
     }
 
     switchMode(getNextStatus());

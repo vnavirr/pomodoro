@@ -11,9 +11,8 @@ This is a frameless, desktop Pomodoro timer with a custom title bar, three sessi
 
 - **25 / 5 / 15 minute cycle** — standard work, short break, and long break durations
 - **Automatic session progression** — after 4 completed pomodoros, the next break is automatically a long break instead of a short one
-- **Persistent total pomodoro count** — total completed work sessions are tracked separately from the current session counter and survive app restarts via `electron-store`
-- **Bubble cursor trail** — a subtle animated cursor effect follows mouse movement inside the app for a more engaging desktop experience
-- **Custom frameless window** — no native OS title bar; a custom-drawn title bar with macOS-style traffic light controls (close / minimize)
+- **Persistent pomodoro counter** — tracks completed work sessions and survives app restarts, saved to disk via `electron-store`
+- **Custom frameless window** — no native OS title bar; a custom-drawn title bar with macOS-style traffic light controls (close / minimize) instead
 - **Auto-hiding title bar** — the title bar fades out when the cursor leaves the app window and reappears when it returns, tracked at the OS level so it works reliably regardless of what's happening in the page
 - **Whole-window dragging** — the entire app (not just the title bar) can be used to reposition the window
 - **Manual mode switching** — jump directly to pomodoro, short break, or long break at any time

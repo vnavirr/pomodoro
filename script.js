@@ -90,7 +90,7 @@ function switchMode(status) {
 // get the next status based on the current status and pomodoro count
 function getNextStatus() {
     if (currentStatus !== 'work') return 'work';
-    return (pomodoroCount + 1) % 4 === 0 ? 'long_break' : 'short_break';
+    return (pomodoroCount) % 4 === 0 ? 'long_break' : 'short_break';
 }
 
 // handle the end of a session, update pomodoro count if it was a work session, and switch to the next mode
